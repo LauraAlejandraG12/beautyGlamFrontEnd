@@ -47,12 +47,12 @@ export class RegisterComponent {
       next: () => {
         this.successMessage = 'cuenta creada correctamente';
         setTimeout(() =>{
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/products']);
         }, 1500);
       },
       error: (err: any) => {
         console.log('Error en el registro', err);
-        this.errorMessage = err.error?.message || 'Error al registrarse'
+        this.errorMessage = err.error || 'La cuenta ya esta registrada'
       }
     });
   }
