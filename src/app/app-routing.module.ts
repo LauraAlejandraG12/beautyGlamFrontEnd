@@ -8,10 +8,18 @@ const routes: Routes = [
     redirectTo: 'auth/login',
     pathMatch: 'full'
   },
+
   {
-    path: 'auth', loadChildren: () =>
-    import('./features/auth/auth.module').then((m) => m.AuthModule),
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/auth/auth.module').then(m => m.AuthModule),
   },
+  {
+    path: 'inventory',
+    loadChildren: () =>
+      import('./features/inventory/inventory.module').then(m => m.InventoryModule),
+  }
+
 ];
 
 @NgModule({

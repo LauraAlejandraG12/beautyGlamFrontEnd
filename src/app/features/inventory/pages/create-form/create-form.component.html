@@ -1,0 +1,50 @@
+<div class="center-container">
+  <div class="product-container">
+
+    <div class="header-container">
+      <h2>Crear Producto</h2>
+      <p class="subtitle">Ingresa la información del producto</p>
+    </div>
+
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+      <div class="input-container">
+
+        <div class="input">
+          <label>Nombre</label>
+          <input type="text" formControlName="product_name">
+        </div>
+
+        <div class="input">
+          <label>Precio</label>
+          <input type="number" formControlName="price">
+        </div>
+
+        <div class="input">
+          <label>Descripción</label>
+          <textarea formControlName="description"></textarea>
+        </div>
+
+        <div class="input">
+          <label>Stock</label>
+          <input type="number" formControlName="stock">
+        </div>
+
+      </div>
+
+      <div class="button-container">
+        <button type="submit">Guardar Producto</button>
+      </div>
+
+    <div *ngIf="errorMessage" class="server-error">
+        {{ errorMessage }}
+    </div>
+    
+    <div *ngIf="successMessage" class="server-success">
+        {{ successMessage }}
+    </div>
+
+    </form>
+
+  </div>
+</div>
