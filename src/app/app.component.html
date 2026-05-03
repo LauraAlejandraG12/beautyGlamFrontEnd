@@ -1,1 +1,10 @@
+<div class="principal-page" *ngIf="showHeader"> 
+    <img src="../assets/images/Beauty Glam.png" alt="">
+    <header>
+        <nav>
+            <a routerLink="/orders/order" routerLinkActive="active">Productos</a>
+            <a routerLink="/orders/history" routerLinkActive="active">Historial de compras</a>
+        </nav>
+    </header>
+</div>
 <router-outlet></router-outlet>
