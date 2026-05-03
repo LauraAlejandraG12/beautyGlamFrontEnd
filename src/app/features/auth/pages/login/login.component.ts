@@ -44,7 +44,7 @@ export class LoginComponent {
         setTimeout(() =>{
           this.showModal = false;
           if(rol === 'CLIENT'){
-            this.router.navigate(['/inventory/products']);
+            this.router.navigate(['/orders/order']);
           }else{
             this.router.navigate(['/inventory/create']);
           }
