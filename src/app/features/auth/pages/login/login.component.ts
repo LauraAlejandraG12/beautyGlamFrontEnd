@@ -36,12 +36,21 @@ export class LoginComponent {
         console.log('Login exitoso', res);
         if (res.token) {
           localStorage.setItem('authToken', res.token);
-        }
+        
+        const payload = JSON.parse(atob(res.token.split('.')[1]));
+        const rol = payload.role;
+
         this.showModal = true;
         setTimeout(() =>{
           this.showModal = false;
-          this.router.navigate(['/products']);
+          if(rol === 'CLIENT'){
+            this.router.navigate(['/inventory/products']);
+          }else{
+            this.router.navigate(['/inventory/create']);
+          }
+          
         }, 3000);
+      }
       },
       error: (err) => {
         console.error('Error en login', err);
