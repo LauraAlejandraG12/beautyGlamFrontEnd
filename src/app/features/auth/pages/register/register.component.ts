@@ -47,7 +47,7 @@ export class RegisterComponent {
       next: () => {
         this.successMessage = 'cuenta creada correctamente';
         setTimeout(() =>{
-          this.router.navigate(['/products']);
+          this.router.navigate(['/auth/login']);
         }, 1500);
       },
       error: (err: any) => {
