@@ -1,0 +1,37 @@
+<div class="history-container">
+
+  <h2>Historial de compras</h2>
+
+  <div class="empty-message" *ngIf="orders.length === 0 && !errorMessage">
+    No tienes compras registradas aún
+  </div>
+
+  <div class="server-error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="order-card" *ngFor="let order of orders">
+
+    <div class="order-header">
+      <div class="order-info">
+        <span class="order-id">Compra #{{ order.orderId }}</span>
+        <span class="order-date">{{ order.orderDate }}</span>
+      </div>
+      <span class="order-total">${{ order.total }}</span>
+    </div>
+
+    <div class="order-items">
+      <div class="order-item" *ngFor="let item of order.items">
+        <span class="item-name">{{ item.productName }}</span>
+        <span class="item-quantity">x{{ item.quantity }}</span>
+        <span class="item-price">${{ item.price }}</span>
+      </div>
+    </div>
+
+    <div class="order-footer">
+      <span class="order-message">{{ order.message }}</span>
+    </div>
+
+  </div>
+
+</div>
