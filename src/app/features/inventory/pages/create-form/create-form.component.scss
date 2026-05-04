@@ -1,55 +1,34 @@
 * {
-  font-family: "DM Sans";
+  font-family: "DM sans";
 }
 
-/* CONTENEDOR PRINCIPAL */
 .center-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 100%;
-  background-color: #F5F0FF;
-  padding: 30px 0;
+  height: 100vh;
+  background: #F5F0FF;
 }
 
-/* TARJETA DEL FORMULARIO */
-.product-container {
+.login-container {
+  width: 70vh;
+  background: white;
   border-radius: 30px;
   border: 1px solid #e6ddf8;
-  width: 70vh;
-  background-color: white;
-  padding: 20px 0 30px 0;
+  padding: 30px;
 }
 
-/* HEADER */
-.header-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.header-container h2 {
-  font-weight: 400;
+h2 {
+  text-align: center;
   color: #26215C;
+  margin-bottom: 20px;
+  font-weight: 400;
 }
 
-.subtitle {
-  font-size: 13px;
-  color: #AFA9EC;
-  font-weight: 600;
-  padding: 10px 0;
-}
-
-/* INPUTS */
-.input-container {
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  padding-top: 20px;
+  gap: 15px;
 }
 
 .input {
@@ -58,148 +37,41 @@
 }
 
 .input label {
-  padding-bottom: 7px;
-  padding-left: 10px;
   font-size: 14px;
   color: #534AB7;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
-.input input,
-.input textarea {
-  width: 45vh;
+.input input {
   border-radius: 10px;
-  border: 1px solid rgb(161, 160, 160);
-  min-height: 35px;
+  border: 1px solid #ccc;
+  height: 35px;
   padding: 10px;
-  background-color: #F5F0FF;
-  color: #26215C;
-  resize: none;
-
-  &:focus {
-    outline: none;
-    border-color: #c59ceb;
-    box-shadow: 0 0 0 3px #EEEDFE;
-  }
+  background: #F5F0FF;
 }
 
-/* BOTÓN */
-.button-container {
-  padding-top: 25px;
-  display: flex;
-  justify-content: center;
+.input input:focus {
+  outline: none;
+  border-color: #c59ceb;
+  box-shadow: 0 0 0 3px #EEEDFE;
 }
 
-.button-container button {
-  width: 47vh;
-  border-radius: 15px;
+button {
+  margin-top: 10px;
   height: 42px;
+  border-radius: 15px;
   border: none;
-  font-size: 15px;
   background: linear-gradient(135deg, #7F77DD, #D4537E);
   color: white;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
 }
 
-/* ERRORES */
-.field-error {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #FFF0F0;
-  border-radius: 20px;
-  padding: 5px 12px;
-  width: fit-content;
-  font-size: 12px;
-  color: #A32D2D;
-  font-weight: 500;
-  margin-top: 4px;
-
-  &::before {
-    content: '!';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #E24B4A;
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-  }
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
-.input-error {
-  border-color: #E24B4A !important;
-  background: #fff5f5 !important;
-}
-
-/* MENSAJES */
-.server-error {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFF0F0;
-  border: 1px solid #F09595;
-  border-radius: 14px;
-  padding: 10px 16px;
-  font-size: 13px;
-  color: #A32D2D;
-  font-weight: 500;
-  margin: 15px auto 0;
-  width: fit-content;
-
-  &::before {
-    content: '!';
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #E24B4A;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.server-success {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #EAF3DE;
-  border: 1px solid #C0DD97;
-  border-radius: 14px;
-  padding: 10px 16px;
-  font-size: 13px;
-  color: #3B6D11;
-  font-weight: 500;
-  margin: 15px auto 0;
-  width: fit-content;
-
-  &::before {
-    content: '✓';
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #639922;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+button:active {
+  transform: scale(0.98);
 }

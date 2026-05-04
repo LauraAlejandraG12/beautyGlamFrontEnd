@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +35,17 @@ export class LoginComponent {
         console.log('Login exitoso', res);
         if (res.token) {
           localStorage.setItem('authToken', res.token);
+
+          const decoded: any = jwtDecode(res.token);
+          console.log('Token decodificado:', decoded);
+
+          const role = decoded.role || decoded.authorities || decoded.rol;
+
+          if (role === 'ADMIN') {
+            window.location.href = '/inventory/products';
+          }
         }
-        alert('Login exitoso');
+        
       },
       error: (err) => {
         console.error('Error en login', err);

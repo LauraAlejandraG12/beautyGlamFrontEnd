@@ -1,1 +1,33 @@
-<p>update-form works!</p>
+<div class="center-container">
+  <div class="login-container">
+
+    <h2>Producto</h2>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+      <div class="input">
+        <label>Nombre</label>
+        <input type="text" formControlName="product_name">
+      </div>
+
+      <div class="input">
+        <label>Precio</label>
+        <input type="number" formControlName="price">
+      </div>
+
+      <div class="input">
+        <label>Descripción</label>
+        <input type="text" formControlName="description">
+      </div>
+
+      <div class="input">
+        <label>Stock</label>
+        <input type="number" formControlName="stock">
+      </div>
+
+      <button type="submit">Guardar</button>
+
+    </form>
+
+  </div>
+</div>

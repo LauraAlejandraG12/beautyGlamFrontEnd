@@ -1,0 +1,77 @@
+* {
+  font-family: "DM sans";
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #F5F0FF;
+}
+
+.login-container {
+  width: 70vh;
+  background: white;
+  border-radius: 30px;
+  border: 1px solid #e6ddf8;
+  padding: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: #26215C;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input label {
+  font-size: 14px;
+  color: #534AB7;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input input {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  height: 35px;
+  padding: 10px;
+  background: #F5F0FF;
+}
+
+.input input:focus {
+  outline: none;
+  border-color: #c59ceb;
+  box-shadow: 0 0 0 3px #EEEDFE;
+}
+
+button {
+  margin-top: 10px;
+  height: 42px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(135deg, #7F77DD, #D4537E);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+}

@@ -1,56 +1,29 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InventoryService } from '@core/services/inventory.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProductService } from '../../../../core/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-form',
   templateUrl: './create-form.component.html',
-  styleUrls: ['./create-form.component.scss'] 
+  styleUrl: './create-form.component.scss'
 })
 export class CreateFormComponent {
 
-  productForm: FormGroup;
+  form = new FormGroup({
+    product_name: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    description: new FormControl(''),
+    stock: new FormControl('', Validators.required)
+  });
 
-  successMessage: string = '';
-  errorMessage: string = '';
+  constructor(private service: ProductService, private router: Router) {}
 
-  constructor(
-    private fb: FormBuilder,
-    private inventoryService: InventoryService
-  ) {
-    this.productForm = this.fb.group({
-      product_name: ['', [Validators.required, Validators.maxLength(50)]],
-      price: [0, [Validators.required, Validators.min(0)]],
-      description: ['', [Validators.maxLength(100)]],
-      stock: [0, [Validators.required, Validators.min(0)]]
+  save() {
+    if (this.form.invalid) return;
+
+    this.service.create(this.form.value).subscribe(() => {
+      this.router.navigate(['/inventory/products']);
     });
-  }
-
-  onSubmit() {
-    if (this.productForm.invalid) {
-      this.productForm.markAllAsTouched();
-      return;
-    }
-
-    this.inventoryService.createProduct(this.productForm.value)
-      .subscribe({
-        next: () => {
-          this.successMessage = 'Producto creado correctamente';
-          this.errorMessage = '';
-          this.productForm.reset();
-        },
-        error: (err) => {
-
-          if (err.status === 401) {
-            this.errorMessage = 'No tienes permisos (solo ADMIN)';
-          } else if (err.status === 0) {
-            this.errorMessage = 'No hay conexión con el servidor';
-          } else {
-            this.errorMessage = err.error || 'Error al crear el producto';
-          }
-
-          this.successMessage = '';
-        }
-      });
   }
 }

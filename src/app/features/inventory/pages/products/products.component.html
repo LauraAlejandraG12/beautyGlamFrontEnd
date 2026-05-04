@@ -1,1 +1,19 @@
-<p>products works!</p>
+<div class="container">
+
+  <h2>Productos</h2>
+
+  <button (click)="goToCreate()">Crear producto</button>
+
+  <div class="product-card" *ngFor="let p of products">
+    <h3>{{ p.product_name }}</h3>
+    <p>{{ p.description }}</p>
+    <p><strong>$ {{ p.price }}</strong></p>
+    <p>Stock: {{ p.stock }}</p>
+
+    <div class="actions">
+      <button (click)="edit(p.id)">Editar</button>
+      <button (click)="delete(p.id)" class="delete">Eliminar</button>
+    </div>
+  </div>
+
+</div>
