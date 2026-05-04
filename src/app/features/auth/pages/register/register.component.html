@@ -1,0 +1,81 @@
+<div class="center-container">
+  <div class="login-container">
+
+    <div class="img-container">
+      <img src="assets/images/bgLogo.webp" alt="">
+    </div>
+
+    <div class="info-container">
+      <p class="welcome">CREA TU CUENTA</p>
+      <h2>Regístrate</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="input-container">
+
+          <div class="input">
+            <label>Nombre de usuario:</label>
+            <input type="text" formControlName="username"
+              [class.input-error]="submitted && usernameControl?.invalid">
+            <div class="field-error" *ngIf="submitted && usernameControl?.errors?.['required']">
+              El nombre es obligatorio
+            </div>
+            <div class="field-error" *ngIf="submitted && usernameControl?.errors?.['minlength']">
+              Mínimo 3 caracteres
+            </div>
+          </div>
+
+          <div class="input">
+            <label>Email:</label>
+            <input type="email" formControlName="email"
+              [class.input-error]="submitted && emailControl?.invalid">
+            <div class="field-error" *ngIf="submitted && emailControl?.errors?.['required']">
+              El email es obligatorio
+            </div>
+            <div class="field-error" *ngIf="submitted && emailControl?.errors?.['email']">
+              El email no tiene un formato correcto
+            </div>
+          </div>
+
+          <div class="input">
+            <label>Contraseña:</label>
+            <input type="password" formControlName="password"
+              [class.input-error]="submitted && passwordControl?.invalid">
+            <div class="field-error" *ngIf="submitted && passwordControl?.errors?.['required']">
+              La contraseña es obligatoria
+            </div>
+            <div class="field-error" *ngIf="submitted && passwordControl?.errors?.['minlength']">
+              <p class="pD">La contraseña debe tener mínimo 6 caracteres</p>
+            </div>
+          </div>
+
+          <div class="input">
+            <label>Confirmar contraseña:</label>
+            <input type="password" formControlName="confirmPassword"
+              [class.input-error]="submitted && (confirmPasswordControl?.invalid || passwordMismatch)">
+            <div class="field-error" *ngIf="submitted && confirmPasswordControl?.errors?.['required']">
+              Confirma tu contraseña
+            </div>
+            <div class="field-error" *ngIf="passwordMismatch">
+              <p class="pD">Las contraseñas no coinciden</p>
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="submit">Registrarse</button>
+            <p>¿Ya tienes cuenta? <span routerLink="/auth/login">Inicia sesión</span></p>
+          </div>
+
+        </div>
+
+        <div class="server-error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <div class="server-success" *ngIf="successMessage">
+          {{ successMessage }}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
