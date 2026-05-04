@@ -1,0 +1,57 @@
+<div class="order-container">
+
+  <h2>Productos</h2>
+
+  <div class="products-list" *ngIf="products.length > 0">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-info">
+        <h3>{{ product.product_name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-price">${{ product.price }}</p>
+      </div>
+      <button class="btn-add" (click)="addToCart(product)">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+
+  <p class="empty-message" *ngIf="products.length === 0 && !errorMessage">
+    No hay productos disponibles
+  </p>
+
+  <div class="server-error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="cart-container" *ngIf="cart.length > 0">
+    <h2>Tu carrito</h2>
+
+    <div class="cart-item" *ngFor="let item of cart">
+      <span class="cart-name">{{ item.productName }}</span>
+
+      <div class="quantity-controls">
+        <button class="btn-quantity" (click)="decreaseQuantity(item)">-</button>
+        <span class="cart-quantity">{{ item.quantity }}</span>
+        <button class="btn-quantity" (click)="increaseQuantity(item)">+</button>
+      </div>
+
+      <span class="cart-price">${{ item.price }}</span>
+      <button class="btn-remove" (click)="removeToCart(item.productId)">✕</button>
+    </div>
+
+    <div class="cart-total">
+      <span>Total:</span>
+      <span>${{ total }}</span>
+    </div>
+
+    <button class="btn-order" (click)="makeOrder()">
+      Confirmar compra
+    </button>
+
+    <div class="server-success" *ngIf="successMessage">
+      {{ successMessage }}
+    </div>
+
+  </div>
+
+</div>

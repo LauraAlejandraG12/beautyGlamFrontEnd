@@ -1,0 +1,125 @@
+* {
+  font-family: "DM Sans";
+}
+
+.history-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #26215C;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.order-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #CECBF6;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #F5F0FF;
+
+  .order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .order-id {
+    font-size: 15px;
+    font-weight: 500;
+    color: #26215C;
+  }
+
+  .order-date {
+    font-size: 12px;
+    color: #AFA9EC;
+  }
+
+  .order-total {
+    font-size: 18px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #7F77DD, #D4537E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #F5F0FF;
+
+  .item-name {
+    flex: 1;
+    font-size: 14px;
+    color: #26215C;
+  }
+
+  .item-quantity {
+    font-size: 13px;
+    color: #AFA9EC;
+    min-width: 30px;
+  }
+
+  .item-price {
+    font-size: 14px;
+    font-weight: 500;
+    color: #534AB7;
+    min-width: 80px;
+    text-align: right;
+  }
+}
+
+.order-footer {
+  padding-top: 0.5rem;
+
+  .order-message {
+    font-size: 13px;
+    color: #AFA9EC;
+    font-style: italic;
+  }
+}
+
+.empty-message {
+  font-size: 14px;
+  color: #AFA9EC;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.server-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF0F0;
+  border: 1px solid #F09595;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #A32D2D;
+  font-weight: 500;
+  margin-top: 1rem;
+}
